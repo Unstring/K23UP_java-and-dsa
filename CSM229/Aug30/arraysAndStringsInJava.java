@@ -10,9 +10,9 @@ public class arraysAndStringsInJava {
         String st1 = "hello world";
         String st2 = "hello world";
         System.out.println(st == st1); // checking referance wise not value wise
-        System.out.println(st1 == st2);
+        System.out.println(st1 == st2); // because java is smart and it dose a smart memory management
         st2 = st2 + "1";
-        System.out.println(st1 == st2);
+        System.out.println(st1 == st2); // because java is smart and it dose a smart memory management
         st2 = st2.substring(0,st2.length() - 1);
         System.out.println(st);
         System.out.println(st1);
