@@ -1,43 +1,43 @@
+package Sep02;
+
 import java.util.Stack;
 
 public class removingElementFromMiddleOfTheStack {
 
-    public static Stack<Integer> removeElementAtIndexInStack(Stack<Integer> stack, int index){
-        Stack<Integer> res = new Stack<Integer>();
-        while (!stack.isEmpty()) {
-            res.push(stack.pop());
+    public static Stack<Integer> removeElementAtIndexInStack(Stack<Integer> stack, int index) {
+        Stack<Integer> res = new Stack<>();
+        for (Integer element : stack) {
+            res.push(element);
         }
+
         Stack<Integer> tempStack = new Stack<>();
         int removalCount = res.size() - index - 1;
         for (int i = 0; i < removalCount; i++) {
-            int ele = res.pop();
-            tempStack.push(ele);
+            tempStack.push(res.pop());
         }
         res.pop();
-        for (int i = 0; i < removalCount; i++) {
-            int ele = tempStack.pop();
-            res.push(ele);
+        while (!tempStack.isEmpty()) {
+            res.push(tempStack.pop());
         }
         return res;
     }
 
-
-    public static Stack<Integer> removeMiddleElementInStack(Stack<Integer> stack){
-        Stack<Integer> res = new Stack<Integer>();
-        while (!stack.isEmpty()) {
-            res.push(stack.pop());
+    public static Stack<Integer> removeMiddleElementInStack(Stack<Integer> stack) {
+        Stack<Integer> res = new Stack<>();
+        for (Integer element : stack) {
+            res.push(element);
         }
+
         int index = res.size() / 2;
+        
         Stack<Integer> tempStack = new Stack<>();
         int removalCount = res.size() - index - 1;
         for (int i = 0; i < removalCount; i++) {
-            int ele = res.pop();
-            tempStack.push(ele);
+            tempStack.push(res.pop());
         }
         res.pop();
-        for (int i = 0; i < removalCount; i++) {
-            int ele = tempStack.pop();
-            res.push(ele);
+        while (!tempStack.isEmpty()) {
+            res.push(tempStack.pop());
         }
         return res;
     }
@@ -60,10 +60,9 @@ public class removingElementFromMiddleOfTheStack {
         Stack<Integer> newStack = removeElementAtIndexInStack(stack, 3);
         Stack<Integer> newStack1 = removeMiddleElementInStack(stack);
         Stack<Integer> newStack2 = removeMiddleElementInStack(newStack);
-        
+
         System.out.println("New Stack after removing the element at index 3: " + newStack);
         System.out.println("New Stack after removing middle element from original stack: " + newStack1);
-        System.out.println("New Stack after removing middle element from manupulated stack(after removing the element at index 3): " + newStack1);
-        
+        System.out.println("New Stack after removing middle element from manipulated stack (after removing the element at index 3): " + newStack2);
     }
 }
