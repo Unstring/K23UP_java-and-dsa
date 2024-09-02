@@ -1,29 +1,17 @@
 public class recusrion {
-
-    static int staticCount = 0;
-
-    int count = 0;
-
-    public static void staticCounter(){
-        staticCount++;
-    }
-
-    public void counter(){
-        this.count++;
+    public static void printArray(int[] array, int i){
+        if (i >= array.length - 1) {
+            return;
+        }
+        System.out.println(array[i]);
+        i = i + 1;
+        printArray(array, i);
+        // System.out.println(array[i]);
     }
 
     public static void main(String[] args) {
-        recusrion rec = new recusrion();
+        int[] arr = {0,1,2,3,4,5,6,7,8};
 
-        rec.counter();
-        rec.counter();
-        rec.counter();
-
-        staticCounter();
-        staticCounter();
-        staticCounter();
-
-        System.out.println(staticCount);
-        System.out.println(rec.count);
+        printArray(arr , 0);
     }
 }
