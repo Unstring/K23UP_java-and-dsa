@@ -35,10 +35,19 @@ public class checkPelindrome {
         Stack<Character> stack = new Stack<>();
         Queue<Character> queue = new ArrayDeque<>();
 
-        for(char c : word.toCharArray()){
+        char[] chars = word.toCharArray();
+        print(chars);
+
+        for(char c : chars){
             stack.push(c);
             queue.add(c);
         }
+
+        // for (int i = 0; i < chars.length; i++) {
+        //     char c = chars[i];
+        //     stack.push(c);
+        //     queue.add(c);
+        // }
 
         while(!stack.isEmpty()){
             char c0 = stack.pop();
@@ -48,5 +57,19 @@ public class checkPelindrome {
             }
         }
         return true;
+    }
+
+    private static void print(char[] chars){
+        int size = chars.length;
+        System.out.print("[");
+        for(int i = 0; i < size; i++){
+            if (i == size - 1) {
+                System.out.print(chars[i]);
+            }else{
+                System.out.print(chars[i] + ", ");
+            }
+        }
+        System.out.print("]");
+        System.out.println();
     }
 }
