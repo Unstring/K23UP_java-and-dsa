@@ -5,6 +5,12 @@ public class overloading {
     public static int staticAddNumbers(int a, int b){
         return a + b;
     }
+    public long addNumbers(long a, long b){
+        return a + b;
+    }
+    public static long staticAddNumbers(long a, long b){
+        return a + b;
+    }
     public double addNumbers(double a, double b){
         return a + b;
     }
