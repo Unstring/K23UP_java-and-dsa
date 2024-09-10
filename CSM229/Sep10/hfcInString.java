@@ -6,7 +6,7 @@ public class hfcInString {
         String str = "sumeethsukhreetdwipayan";
         
         // char hfc1 = getHFCusingVeriable(str);
-        char hfc2 = getHFCusingArray(str);
+        // char hfc2 = getHFCusingArray(str);
         char hfc3 = getHFCusingHashTable(str);
 
         System.out.println(hfc3);
@@ -23,6 +23,16 @@ public class hfcInString {
         }
 
         //iterate over hash table and get the max count return the character
+        int maxCount = -1;
+        char hfc = '\0';
+        for (Character ch : charTable.keySet()) {
+            if (maxCount < charTable.get(ch)) {
+                maxCount = charTable.get(ch);
+                hfc = ch;
+            }
+        }
+
+        return hfc;
     }
 
     private static char getHFCusingArray(String str) {
