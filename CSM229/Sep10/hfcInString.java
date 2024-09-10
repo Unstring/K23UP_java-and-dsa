@@ -1,3 +1,4 @@
+import java.util.Hashtable;
 
 public class hfcInString {
 
@@ -6,8 +7,22 @@ public class hfcInString {
         
         // char hfc1 = getHFCusingVeriable(str);
         char hfc2 = getHFCusingArray(str);
+        char hfc3 = getHFCusingHashTable(str);
 
-        System.out.println(hfc2);
+        System.out.println(hfc3);
+    }
+
+    private static char getHFCusingHashTable(String str) {
+        Hashtable<Character, Integer> charTable = new Hashtable<Character, Integer>();
+        for (char ch : str.toCharArray()) {
+            if (charTable.get(ch) == null) {
+                charTable.put(ch,1);
+            }else{
+                charTable.put(ch, charTable.get(ch) + 1);
+            }
+        }
+
+        //iterate over hash table and get the max count return the character
     }
 
     private static char getHFCusingArray(String str) {
