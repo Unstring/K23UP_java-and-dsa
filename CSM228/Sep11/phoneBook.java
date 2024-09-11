@@ -7,17 +7,15 @@ class phoneBookHelper {
     public void addContact(String name, String phoneNumber) {
         phoneBook.put(name, phoneNumber);
     }
-    public String getContact(String name) {
-        return phoneBook.get(name);
-    }
-    public void deleteContact(String name) {
-        phoneBook.remove(name);
-    }
     public void printAllContacts() {
-        
-        for (String name : phoneBook.keySet()) {
-            System.out.println(name + ": " + phoneBook.get(name));
+        if (phoneBook.isEmpty()) {
+            System.out.println("phone book is empty");
+        }else{
+            for (String name : phoneBook.keySet()) {
+                System.out.println(name + ": " + phoneBook.get(name));
+            }
         }
+        
     }
     public String search(String str){
         return "Searching";
@@ -27,17 +25,14 @@ class phoneBookHelper {
 public class phoneBook {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
-        String command;
         phoneBookHelper helper = new phoneBookHelper();
+
+        String command;
+
         System.out.println("Please enter the command \naccptable commands are 'add', 'show', 'delete', 'update', 'exit' to interact with contact book!");
         while (true) {
 
             command = scn.next();
-
-            if (command  == "exit") {
-                System.out.println("Thankyou for using this contact book!");
-                break;
-            }
 
             switch (command) {
                 case "add":
@@ -50,20 +45,17 @@ public class phoneBook {
                 case "show":
                     helper.printAllContacts();
                     break;
-                case "delete":
-                    System.out.println("Enter name of the contact to delete:");
-                    name = scn.next();
-                    helper.deleteContact(name);
-                    System.out.println("Contact deleted successfully!");
+                case "search":
+                    System.out.println("enter the search keyword");
+                    String str = scn.next();
+                    helper.search(str);
                     break;
-                case "update":
-                    System.out.println("Enter name of the contact to update:");
-                    name = scn.next();
-                    System.out.println("Enter new phone number:");
-                    phoneNumber = scn.next();
-                    helper.addContact(name, phoneNumber);
-                    System.out.println("Contact updated successfully!");
-                    break;
+                case "exit":
+                    System.out.println("thank you for using the phonebook!");
+                    scn.close();
+                    return;
+                default:
+                    System.out.println("Invalid command. Please enter a valid command.");
             }
         }
     }
