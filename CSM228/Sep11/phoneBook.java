@@ -28,6 +28,8 @@ class phoneBookHelper {
         }
         if (counter == 0) {
             System.out.println("No contacts found");
+        } else {
+            System.out.println(counter + " contacts found");
         }
     }
 }
