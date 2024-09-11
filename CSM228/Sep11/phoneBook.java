@@ -17,8 +17,18 @@ class phoneBookHelper {
         }
         
     }
-    public String search(String str){
-        return "Searching";
+    public void search(String str){
+        System.out.println("Searching contacts for " + '"' + str + '"');
+        int counter = 0;
+        for (String name : phoneBook.keySet()) {
+            if (name.contains(str)) {
+                counter ++;
+                System.out.println("Name " + name + " Phone: " + phoneBook.get(name));
+            }
+        }
+        if (counter == 0) {
+            System.out.println("No contacts found");
+        }
     }
 }
 
@@ -29,18 +39,22 @@ public class phoneBook {
 
         String command;
 
-        System.out.println("Please enter the command \naccptable commands are 'add', 'show', 'delete', 'update', 'exit' to interact with contact book!");
+        System.out.println("Please enter the command \naccptable commands are 'add', 'show', 'exit' to interact with contact book!");
         while (true) {
 
             command = scn.next();
 
             switch (command) {
+                case "exit":
+                    System.out.println("thank you for using the phonebook!");
+                    scn.close();
+                    return;
                 case "add":
                     System.out.println("Enter the name and contact number saprated by space: ");
                     String name = scn.next();
                     String phoneNumber = scn.next();
                     helper.addContact(name, phoneNumber);
-                    System.out.println("Contact added successfully!");
+                    System.out.println("Contact Name: " + name + ", Phone: " + phoneNumber + " added successfully!");
                     break;
                 case "show":
                     helper.printAllContacts();
@@ -50,10 +64,6 @@ public class phoneBook {
                     String str = scn.next();
                     helper.search(str);
                     break;
-                case "exit":
-                    System.out.println("thank you for using the phonebook!");
-                    scn.close();
-                    return;
                 default:
                     System.out.println("Invalid command. Please enter a valid command.");
             }
