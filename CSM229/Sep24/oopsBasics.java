@@ -27,12 +27,17 @@ public class oopsBasics {
     }
 
     private static int countFactors(int num) { // TC => O(num)
-        int count = 0;
-        for (int i = 1; i <= num; i++) { // TC => O(num)
+        int count = 2;
+        for (int i = 2; i*i <= num; i++) { // TC => O(num)
             if (num % i == 0) {
-                count++;
+                count = count + 2;
             }
         }
         return count;
     }
 }
+
+// factors of        9 = 1, 3, 9
+// counter factors ->    9, 3, 1
+// factors of        12 = 1, 2, 3, 4, 6, 12
+// counter factors ->     12, 6, 4, 3, 2, 1
