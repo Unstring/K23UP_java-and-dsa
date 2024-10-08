@@ -13,6 +13,13 @@ class publicOrPrivate {
         System.out.println(this.privateName);
         System.out.println(this.publicName);
     }
+
+    public void menupulate(){
+        this.privateName = "updated private name" + this.privateName;
+        this.publicName = "updated public name" + this.publicName;
+        // System.out.println(this.privateName);
+        // System.out.println(this.publicName);
+    }
 }
 
 
@@ -34,6 +41,15 @@ public class staticKeyword {
         publicOrPrivate obj2 = new publicOrPrivate("Student");
         // System.out.println(obj2.publicName);
         // System.out.println(obj2.privateName);
+        obj2.printBoth();
+
+        // obj2.publicName = "updated public name" + obj2.publicName;
+        // obj2.privateName = "updated private name" + obj2.privateName;
+
+        // System.out.println(obj2.publicName);
+        // System.out.println(obj2.privateName);
+
+        obj2.menupulate();
         obj2.printBoth();
     }
 }
