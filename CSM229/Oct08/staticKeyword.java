@@ -31,9 +31,23 @@ class setterAndGetter{
     private String LastName;
 
     public setterAndGetter(String fullName){
-        String[] names = fullName.split(" ");
-        this.firstName = names[0];
-        this.LastName = names[1];
+        if (fullName == null) {
+            this.firstName = "";
+            this.LastName = "";
+        }else{
+
+            String[] names = fullName.split(" ");
+            if (names.length == 1) {
+                this.firstName = names[0];
+                this.LastName = "";
+            }else{
+                this.firstName = names[0];
+                this.LastName = "";
+                for (int i = 1; i < names.length; i++){
+                    this.LastName += names[i] + " ";
+                }
+            }
+        }
     }
 
     public String getFirstName() {
@@ -71,7 +85,7 @@ public class staticKeyword {
         publicOrPrivate obj2 = new publicOrPrivate("Student");
         // System.out.println(obj2.publicName);
         // System.out.println(obj2.privateName);
-        obj2.printBoth();
+        // obj2.printBoth();
 
         // obj2.publicName = "updated public name" + obj2.publicName;
         // obj2.privateName = "updated private name" + obj2.privateName;
@@ -79,7 +93,11 @@ public class staticKeyword {
         // System.out.println(obj2.publicName);
         // System.out.println(obj2.privateName);
 
-        obj2.menupulate();
-        obj2.printBoth();
+        // obj2.menupulate();
+        // obj2.printBoth();
+
+        setterAndGetter obj3 = new setterAndGetter("amit anand mishra");
+        System.out.println(obj3.getFirstName());
+        System.out.println(obj3.getLastName());
     }
 }
